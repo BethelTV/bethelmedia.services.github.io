@@ -1,0 +1,231 @@
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include regular-font-stack;
+
+  background-color: $pure-white;
+  color: $pure-black;
+  font-size: $regular-font-size;
+
+  .page-container {
+    margin: 0 auto $small-size;
+
+    @include media-query($min, $siteWidth + 1) {
+      margin: 0 auto $medium-size;
+      max-width: $large-size * 2;
+    }
+
+    .page-section {
+      margin: 0 0 ($regular-padding - 5) 0;
+      padding: ($medium-padding - 5) $small-padding $small-padding;
+
+      &:first-child {
+        padding: $medium-padding $small-padding $small-padding;
+
+        @include media-query($min, $medium + 1) {
+          padding: $large-padding $small-padding $small-padding;
+        }
+      }
+
+      &.request-form {
+        padding: $medium-padding $small-padding $small-padding;
+      }
+    }
+  }
+}
+
+// Typography Globals
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  @include header-font-stack;
+  margin: 0 0 15px 0;
+}
+
+h1, .h1 {
+  margin: 0 0 $regular-padding 0;
+  font-size: $large-plus-font-size;
+
+  @include media-query($min, $medium + 1) {
+    font-size: $larger-font-size;
+  }
+}
+
+h3, .h3 {
+  font-size: $medium-font-size;
+  margin: 0 0 $regular-padding 0;
+}
+
+h4, .h4 {
+  font-size: $regular-font-size - .25;
+}
+
+h5, .h5 {
+  font-size: $smaller-font-size;
+}
+
+p {
+  font-size: $regular-font-size;
+  margin: 0 0 $medium-padding 0;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+// Typography Global Modifiers
+
+.medium-content {
+  font-size: $medium-font-size;
+}
+
+.copy-accent-primary {
+  color: rgb(86, 86, 185);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  opacity: 1;
+  @include prefix(
+    (
+      transition: opacity 0.3s ease-in-out,
+    ),
+    webkit ms moz o spec
+  );
+  &:hover {
+    opacity: $link-hover-opc;
+    @include prefix(
+      (
+        transition: opacity 0.3s ease-in-out,
+      ),
+      webkit ms moz o spec
+    );
+  }
+}
+
+// Buttons
+
+.button-primary {
+  background: $bms-blue;
+  border-radius: 28.5px;
+  color: $pure-white;
+  padding: ($regular-padding - 1) ($medium-padding + $regular-padding) - 3;
+
+  @include media-query($max, $phone) {
+    font-size: $very-small-font-size;
+    padding: $small-padding - 5 $small-padding;
+  }
+}
+
+.link {
+  color: $bms-blue;
+  text-decoration: underline;
+}
+
+.link-cont {
+
+  &.icon {
+    @include display-flex;
+    @include prefix((flex-direction: row), webkit ms moz o spec);
+    @include prefix((align-items: center), webkit ms moz o spec);
+  }
+
+  .long-right-arrow {
+    margin: 0 0 0 $small-padding;
+  }
+}
+
+.logo-link {
+  display: block;
+  padding: 5px;
+}
+
+.upcase {
+  text-transform: uppercase;
+}
+
+// .flex-center {
+//   @include display-flex;
+//   @include prefix((align-items: center), webkit ms moz o spec);
+// }
+
+// Icons
+
+.long-right-arrow {
+  .link-cont & {
+    color: $bms-blue;
+  }
+}
+
+.chevron-down {
+  &::after {
+    content: "";
+    background-image: url($chevron-down-icon);
+    background-size: 100%;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+  }
+}
+
+.chevron-left {
+  &::before {
+    content: "";
+    background-image: url($chevron-left-icon);
+    background-size: contain;
+    height: 20px;
+    width: 13px;
+    display: inline-block;
+  }
+}
+
+.chevron-right {
+  &::after {
+    content: "";
+    background-image: url($chevron-right-icon);
+    background-size: contain;
+    height: 20px;
+    width: 13px;
+    display: inline-block;
+  }
+}
+
+.search-icon {
+  background-image: url($search-icon);
+  background-size: contain;
+  height: 20px;
+  width: 20px;
+}
+
+.user-account {
+  background-image: url($user-account-icon);
+  background-size: contain;
+  height: 20px;
+  width: 18px;
+}
+
+.arrow-right {
+  background-image: url($arrow-right-icon);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: $regular-padding;
+  width: $regular-padding;
+}
+
+.bethel-media-services-logo {
+  background: $pure-white url($bethel-media-logo-dark) no-repeat center;
+  background-size: contain;
+}

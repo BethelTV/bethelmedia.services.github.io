@@ -1,0 +1,59 @@
+.nav-cont {
+  // Delete if not used after a while.
+
+  ul {
+    margin: 0 0 15px 0;
+  }
+
+  .nav-item {
+    padding: $regular-wrap-padding;
+  }
+}
+
+.nav-link {
+  color: $header-text-color;
+  font-size: $small-font-size;
+  padding: $regular-wrap-padding;
+}
+
+.page-nav {
+  &.nav-cont {
+    a {
+      padding: $small-padding / 2;
+    }
+  }
+  .nav-wrap {
+    padding: 0 $small-padding / 2;
+    @include display-flex;
+    @include prefix((flex-direction: column), webkit ms moz o spec);
+    @include prefix((align-items: center), webkit ms moz o spec);
+    @include prefix((justify-content: space-between), webkit ms moz o spec);
+
+    @include media-query($min, $medium + 1) {
+      padding: 0 ($medium-padding + $space) - ($space / 2);
+      @include prefix((flex-direction: row), webkit ms moz o spec);
+    }
+  }
+
+  // belongs in home page file.
+
+  .img-cont {
+    height: $smaller-size;
+    width: $smaller-size;
+
+    @include media-query($min, $phone + 1) {
+      height: $small-size;
+      width: $small-size;
+    }
+
+    .img-link {
+      display: block;
+      height: $full-width;
+      width: $full-width;
+    }
+
+    .nav-img {
+      width: $full-width;
+    }
+  }
+}

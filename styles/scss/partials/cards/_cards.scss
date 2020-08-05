@@ -1,0 +1,79 @@
+.square-card-cont {
+  background-color: $light-gray;
+  border: 1px solid transparent;
+  border-radius: $space - 3;
+  padding: $regular-padding * 2;
+  @include prefix((transition: $transition-back-border), webkit ms moz o spec);
+
+  &:hover {
+    background-color: $pure-white;
+    border: 1px solid $bms-blue;
+    @include prefix((transition: $transition-back-border), webkit ms moz o spec);
+  }
+
+  .section-subtitle {
+    font-weight: $regular-font-weight;
+    margin: 0 0 ($small-padding / 2) 0;
+  }
+
+  .section-title {
+    margin: 0 0 $small-padding 0;
+
+    @include media-query(none, $large, $siteWidth) {
+      font-size: $regular-plus-font-size;
+    }
+  }
+
+  .link-cont {
+    margin: 0 0 $regular-padding 0;
+  }
+
+  .link {
+    margin: 0;
+  }
+
+  .section-content {
+    height: ($small-size * 2);
+    margin: 0 0 $regular-padding 0;
+
+    @include media-query($min, $xsmall + 1) {
+      height: $small-size + ($smaller-size - $small-padding);
+    }
+
+    @include media-query(none, $large,  $siteWidth) {
+      height: ($small-size * 2) - $regular-padding;
+    }
+
+    @include media-query($min, $siteWidth + 1) {
+      height: $small-size + ($smaller-size - $small-padding);
+    }
+  }
+}
+
+// should be in pages file.
+.nav-link {
+  text-decoration: none;
+
+  &:not(:last-child) {
+    @include media-query($min, $siteWidth + 1) {
+      margin: 0 $small-padding 0 0;
+    }
+  }
+
+  .page-nav & {
+    .requests-page &,
+    .onboard-page &,
+    .project-page &,
+    .quick-service-page & {
+      max-width: $medium-size + $smaller-size + $medium-padding + 5;
+
+      @include media-query($min, $siteWidth + 1) {
+        width: $full-width / 3;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

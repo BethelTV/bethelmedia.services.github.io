@@ -1,0 +1,29 @@
+
+section {
+  // Typography
+
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    line-height: 1.2;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  .section-title {
+    margin: 0 0 $small-padding 0;
+  }
+
+  .small-content {
+    max-width: $medium-size + ($small-size * 3) - $medium-padding;
+  }
+
+  &.page-introduction {
+    max-width: $large-size + $medium-size;
+  }
+}

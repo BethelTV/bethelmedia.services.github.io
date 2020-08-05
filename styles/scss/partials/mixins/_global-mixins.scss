@@ -1,0 +1,56 @@
+/*! Media queries inspired by - Avalanche | MIT License | @colourgarden */
+
+$phone:            "screen and (max-width: 640px)";
+$tablet:           "screen and (min-width: 641px) and (max-width: 1007px)";
+$tablet-up:    "screen and (min-width: 641px)";
+$pocket:           "screen and (max-width: 1007px)";
+$laptop:              "screen and (min-width: 1008px) and (max-width: 1239px)";
+$laptop-up:       "screen and (min-width: 1008px)";
+$desktop:             "screen and (min-width: 1240px)";
+$widescreen:       "screen and (min-width: 1500px)";
+
+$viewportIncrement: 1px;
+$siteWidth: 1050px;
+$xsmall: 320px;
+$phone: 640px;
+$medium: 768px;
+$large: 769px;
+$min: min-width;
+$max: max-width;
+@mixin media-query ($constraint, $viewport1, $viewport2:null) {
+  @if $constraint == $min {
+    @media screen and ($min: $viewport1) {
+      @content;
+    }
+  } @else if $constraint == $max {
+    @media screen and ($max: $viewport1) {
+      @content;
+    }
+  } @else {
+    @media screen and ($min: $viewport1) and ($max: $viewport2) {
+      @content;
+    }
+  }
+}
+
+// prefix Inspired by @author Hugo Giraudel for CSS Tricks
+
+@mixin prefix($declarations, $prefixes: ()) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+  }
+}
+
+// Ex:
+// .selector {
+//   @include prefix((
+//     column-count: 3,
+//     column-gap: 1.5em,
+//     column-rule: 2px solid hotpink
+//   ), webkit moz);
+// }

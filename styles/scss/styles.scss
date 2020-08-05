@@ -1,0 +1,353 @@
+@import '../scss/partials/variables/colors';
+@import '../scss/partials/variables/global-var';
+@import "../scss/partials/mixins/global-mixins";
+@import '../scss/partials/mixins/flex-box';
+@import "../scss/partials/variables/fonts";
+@import "../scss/partials/mixins/font-stack";
+@import "../scss/partials/globals/sections";
+@import "../scss/partials/nav/nav";
+@import "../scss/partials/globals/base";
+@import "./partials/cards/cards";
+@import "./partials/forms/request-form";
+
+// Z Index Guide z-index
+// .main-nav .right-nav - z-index: 5
+
+
+#site-header {
+  background-color: $header-background;
+  color: $header-text-color;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .logo-cont {
+    @include media-query($min, $siteWidth + 1) {
+      padding: 0 0 0 $small-padding / 2;
+    }
+
+    .logo-img {
+      max-width: $hdr-nav-logo-mbl-wth;
+
+      @include media-query($min, $medium + 1) {
+        max-width: $hdr-nav-logo-wth;
+      }
+
+      &.logo-svg--data {
+        display: block;
+        height: $medium-padding + 6;
+        width: $hdr-nav-logo-mbl-wth;
+
+        @include media-query($min, $medium + 1) {
+          width: $hdr-nav-logo-wth;
+        }
+      }
+    }
+  }
+
+  .nav-cont {
+    padding: $regular-wrap-padding $small-padding;
+    position: relative;
+    @include display-flex;
+    @include prefix((flex-direction: row), webkit ms moz o spec);
+    @include prefix((align-items: center), webkit ms moz o spec);
+
+
+    @include media-query($max, $medium) {
+      @include prefix((justify-content: space-between), webkit ms moz o spec);
+    }
+
+    @include media-query($min, $siteWidth + 1) {
+      padding: $regular-wrap-padding ($regular-padding * 2) $regular-wrap-padding ($regular-padding * 2) - 5;
+    }
+
+    .nav-wrap {
+      background-color: $header-background;
+      @include display-flex;
+
+      @include media-query($min, $medium + 1) {
+        width: 100%;
+        @include prefix((flex-direction: row), webkit ms moz o spec);
+        @include prefix((align-items: center), webkit ms moz o spec);
+
+        &.has-right-nav {
+          @include prefix((justify-content: space-between), webkit ms moz o spec);
+        }
+      }
+    }
+
+    .main-nav,
+    .right-nav {
+      z-index: 5;
+      @include display-flex;
+      @include prefix((flex-direction: row), webkit ms moz o spec);
+      @include prefix((align-items: center), webkit ms moz o spec);
+    }
+
+    .nav-menu {
+      margin: 0;
+      padding: $small-padding / 2;
+
+      @include media-query($min, $medium + 1) {
+        margin: 0;
+        padding: $small-padding + 5;
+      }
+    }
+
+    .right-nav {
+      a {
+        @include display-flex;
+        @include prefix((align-items: center), webkit ms moz o spec);
+      }
+    }
+
+    .main-nav {
+      &.empty-nav {
+        li {
+          height: $space;
+          width: $space;
+        }
+
+        @include media-query($max, $medium) {
+          display: none;
+        }
+      }
+    }
+
+    .nav-item {
+      &:not(:last-child) {
+        margin: 0;
+
+        @include media-query($min, $phone + 1) {
+          margin: 0 ($large-padding - $space) 0 0;
+        }
+      }
+    }
+
+    .nav-link {
+      .long-right-arrow {
+        @include media-query($min, $phone + 1) {
+          margin: 0 0 0 $space;
+        }
+      }
+    }
+  }
+}
+
+#SiteContent {
+  .page-introduction {
+    .content-header {
+      margin: 0 0 $small-padding 0;
+    }
+  }
+
+  .section-title,
+  .section-subtitle,
+  .section-content {
+    padding: $small-padding / 2;
+  }
+
+  .img-txt-sctn {
+    .section-title {
+      font-weight: $regular-font-weight;
+      letter-spacing: 1px;
+    }
+
+    .section-container {
+      @include display-flex;
+      @include prefix((flex-direction: column), webkit ms moz o spec);
+
+      @include media-query($min, $medium + 1) {
+        @include prefix((flex-direction: row), webkit ms moz o spec);
+        @include prefix((align-items: center), webkit ms moz o spec);
+      }
+
+      .img-cont {
+        padding: $small-padding;
+
+        @include media-query($min, $medium + 1) {
+          padding: $space / 2 $regular-margin $space / 2 $small-padding;
+          width: $one-half-width;
+        }
+
+        @include media-query($min, $siteWidth + 1) {
+          padding: $space / 2 $regular-margin * 2 $space / 2 $space / 2;
+          width: $one-half-width + 10;
+        }
+
+        .img-wrap {
+          height: $full-width;
+          width: $full-width;
+
+          @include media-query($min, $phone + 1) {
+            height: $medium-size + $small-size + $smaller-size + 38;
+            width: $full-width;
+          }
+
+          @include media-query($min, $siteWidth + 1) {
+            height: $medium-size + $small-size + $smaller-size + 38;
+            width: $large-size + $smaller-size + 1;
+          }
+
+          .content-image {
+            height: $full-width;
+            width: $full-width;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .content-container {
+        padding: $small-padding;
+
+        @include media-query($min, $medium + 1) {
+          padding: $space / 2 $space $space / 2 $regular-margin;
+          width: $one-half-width;
+        }
+
+        @include media-query($min, $siteWidth + 1) {
+          padding: $space / 2 $space $space / 2 $regular-margin * 2;
+          width: $one-half-width - 10;
+        }
+
+        .img-cont {
+          margin: 0 0 $medium-padding 0;
+          padding: 0;
+          width: unset;
+
+          .img-wrap {
+            height: $smaller-size;
+            width: $smaller-size;
+
+            .content-image {
+              height: $full-width;
+              width: $full-width;
+              object-fit: cover;
+            }
+          }
+        }
+
+        header,
+        p {
+          @include media-query($min, $medium + 1) {
+            padding: $space / 2;
+          }
+        }
+      }
+    }
+
+    &.page-section {
+      margin: 0 0 ($regular-padding + $medium-padding) - 5 0;
+      padding: ($regular-padding + $medium-padding) - 5 ($space / 2) ($space / 2);
+    }
+
+    &.reverse {
+      .content-container {
+        padding: $small-padding;
+
+        @include media-query($min, $medium + 1) {
+          padding: $space / 2 $regular-margin * 2 $space / 2 $space / 2;
+        }
+
+        @include media-query($min, $siteWidth + 1) {
+          padding: $space / 2 $regular-margin * 2 $space / 2 $space;
+        }
+      }
+      .img-cont {
+        padding: $small-padding;
+
+        @include media-query($min, $medium + 1) {
+          padding: $space / 2 $small-padding $space / 2 $regular-margin * 2;
+        }
+
+        @include media-query($min, $siteWidth + 1) {
+          padding: $space / 2 $space / 2 $space / 2 $regular-margin * 2;
+        }
+      }
+    }
+  }
+
+  .home-page {
+    .page-nav {
+      .img-cont {
+        margin: 0 auto ($regular-padding + 5);
+      }
+
+      .section-subtitle {
+        margin: 0;
+        text-align: center;
+      }
+
+      .img-link{
+        text-decoration: none;
+        color: $pure-black;
+      }
+    }
+    .nav-wrap {
+      @include prefix((flex-direction: row), webkit ms moz o spec);
+    }
+  }
+
+  .requests-page,
+  .onboard-page,
+  .project-page,
+  .quick-service-page {
+
+    .page-section {
+      .nav-wrap {
+        padding: 0;
+      }
+    }
+
+    .nav-wrap {
+      .nav-link {
+        &.active {
+          .square-card-cont {
+            background-color: $bms-blue;
+            color: $pure-white;
+          }
+
+          .link,
+          .long-right-arrow {
+            color: $pure-white;
+          }
+        }
+      }
+    }
+  }
+
+  .onboard-page,
+  .project-page,
+  .quick-service-page {
+    .nav-wrap {
+      .nav-link {
+
+        &:not(.active) {
+          .square-card-cont {
+            color: $gray-fifty;
+          }
+
+          .link,
+          .long-right-arrow {
+            color: $gray-fifty;
+          }
+        }
+
+        &:hover {
+          &:not(.active) {
+            .square-card-cont {
+              color: initial;
+            }
+
+            .link,
+            .long-right-arrow {
+              color: $bms-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}

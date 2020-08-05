@@ -1,0 +1,13 @@
+@import '../variables/fonts';
+
+@mixin regular-font-stack {
+  font-family: $regular-font-stack;
+  font-weight: $regular-font-weight;
+  font-style: $regular-font-style;
+}
+
+@mixin header-font-stack {
+  font-family: $regular-font-stack;
+  font-weight: $bold-font-weight;
+  font-style: $regular-font-style;
+}

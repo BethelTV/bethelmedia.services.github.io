@@ -1,0 +1,16 @@
+.request-form {
+  .section-title {
+    text-align: center;
+  }
+
+  .form-placeholer {
+    align-items: center;
+    background-color: $light-gray;
+    display: flex;
+    height: $large-size + $medium-size;
+    justify-content: center;
+    margin: auto;
+    max-width: $large-size + $medium-size + $smaller-size + $medium-padding + 6;
+    text-align: center;
+  }
+}

@@ -1,0 +1,36 @@
+@import './colors';
+@import './settings';
+@import './icons';
+
+$link-hover-opc: 0.7;
+
+$transition-time-standard: 0.3s;
+$transition-op-vis: opacity $transition-time-standard, visibility $transition-time-standard ease-in-out;
+$transition-back-border: background-color $transition-time-standard, border $transition-time-standard;
+
+// Spacing
+$regular-wrap-padding: 5px;
+
+$space: 10px;
+
+$small-margin: $space;
+$regular-margin: $space * 2;
+$medium-margin: $space * 3;
+$large-margin: $space * 6;
+
+$small-padding: $space;
+$regular-padding: $space * 2;
+$medium-padding: $space * 3;
+$large-padding: $space * 6;
+
+// Sizing
+
+$smaller-size: 50px;
+$small-size: 100px;
+$medium-size: 300px;
+$large-size: 600px;
+
+// Width
+
+$full-width: 100%;
+$one-half-width: 50%;
